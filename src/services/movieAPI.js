@@ -1,6 +1,6 @@
 const TIMEOUT = 2000;
 const SUCCESS_STATUS = 'OK';
-const BASE_URL = 'https://movie-crud-renato.herokuapp.com/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // --------------------------------------------------------------------
 // A função simulateRequest simula uma requisição para uma API externa
