@@ -1,5 +1,6 @@
 const TIMEOUT = 2000;
 const SUCCESS_STATUS = 'OK';
+const BASE_URL = 'https://movie-crud-renato.herokuapp.com/';
 
 // --------------------------------------------------------------------
 // A função simulateRequest simula uma requisição para uma API externa
@@ -15,13 +16,13 @@ const simulateRequest = (response) => (callback) => {
 };
 
 export const getMovies = async () => (
-  fetch('http://localhost:3001/movies').then((movies) => movies.json())
+  fetch(`${BASE_URL}/movies`).then((movies) => movies.json())
 );
 
-export const getMovie = async (movieId) => fetch(`http://localhost:3001/movies/${movieId}`).then((movies) => movies.json());
+export const getMovie = async (movieId) => fetch(`${BASE_URL}/movies/${movieId}`).then((movies) => movies.json());
 
 export const updateMovie = async (updatedMovie) => (
-	fetch(`http://localhost:3001/movies/${updatedMovie.id}`, {
+	fetch(`${BASE_URL}/movies/${updatedMovie.id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -43,7 +44,7 @@ export const updateMovie = async (updatedMovie) => (
 );
 
 export const createMovie = async (movieData) => (
-  fetch('http://localhost:3001/movies/', {
+  fetch(`${BASE_URL}/movies/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -63,7 +64,7 @@ export const createMovie = async (movieData) => (
 );
 
 export const deleteMovie = (movieId) => {
-  fetch(`http://localhost:3001/movies/${movieId}`, {
+  fetch(`${BASE_URL}/movies/${movieId}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
